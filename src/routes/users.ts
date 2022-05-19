@@ -18,14 +18,12 @@ const schema = {
 export default async function users(fastify: FastifyInstance) {
   fastify.get(
     '/users',
-    { schema },
+    {
+      schema,
+      onRequest: [fastify.authenticate],
+    },
     async (req: FastifyRequest): Promise<ResponseSchema> => {
       req.log.info('Users route called')
-      try { 
-        await req.jwtVerify()
-      } catch (err) {
-        throw new Error('Auth failed')
-      }
       
       const { rows: users } = await fastify.pg.query(
         'SELECT id, username FROM users'
