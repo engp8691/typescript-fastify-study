@@ -13,7 +13,7 @@ function buildServer(config: EnvConfig): FastifyInstance {
 
   const fastify = Fastify(opts)
 
-  fastify.setErrorHandler(async (error, req, reply) => {
+  fastify.setErrorHandler(async (error, _req, reply) => {
     fastify.log.info('MAIN ERROR HANDLER')
     reply.status(500).send(error)
   })

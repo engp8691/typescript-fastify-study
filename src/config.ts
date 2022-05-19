@@ -11,7 +11,7 @@ const schema = Type.Strict(Type.Object({
 
 export default envSchema<EnvConfig>({
   schema,
-  dotenv: { path: join(__dirname, '.env') },
+  dotenv: { path: join(__dirname, '../.env') },
 })
 
 export type EnvConfig = {
