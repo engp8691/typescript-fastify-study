@@ -10,7 +10,7 @@ export default async function userController(fastify: FastifyInstance) {
     reply.send({
       balance: "$3,277.32",
       picture: "http://placehold.it/32x32",
-      age: 30,
+      age: 25,
       name: "Leonor Cross",
       gender: "female",
       company: "GRONK",
